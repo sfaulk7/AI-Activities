@@ -96,7 +96,8 @@ public:
     void setRotation(float radians);
 
     /// <summary>
-    /// Increases the angle of rotation by the given amount.
+    /// Increases the angle of rotation counterclockwise by the given amount in radians. 
+    /// Don't forget 1/2 pie(3.14) is one radian, which is 90 degrees.
     /// </summary>
     /// <param name="radians">The amount of radians to increase the rotation by</param>
     void rotate(float radians);

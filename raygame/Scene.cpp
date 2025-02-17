@@ -4,7 +4,7 @@
 Scene::Scene()
 {
     m_actorCount = 0;
-    m_actors = ActorArray();
+    m_actors = DynamicArray<Actor*>();
     m_world = new MathLibrary::Matrix3();
 }
 
@@ -15,44 +15,48 @@ MathLibrary::Matrix3* Scene::getWorld()
 
 void Scene::addUIElement(Actor* actor)
 {
-    m_UIElements.addActor(actor);
+    m_UIElements.Add(actor);
 
     //Adds all children of the UI to the scene
     for (int i = 0; i < actor->getTransform()->getChildCount(); i++)
     {
-        m_UIElements.addActor(actor->getTransform()->getChildren()[i]->getOwner());
+        m_UIElements.Add(actor->getTransform()->getChildren()[i]->getOwner());
     }
 }
 
 bool Scene::removeUIElement(int index)
 {
-    return m_UIElements.removeActor(index);
+    return m_UIElements.Remove(index);
+    return true;
 }
 
 bool Scene::removeUIElement(Actor* actor)
 {
-    return m_UIElements.removeActor(actor);
+    m_UIElements.Remove(actor);
+    return true;
 }
 
 void Scene::addActor(Actor* actor)
 {
-    m_actors.addActor(actor);
+    m_actors.Add(actor);
 
     //Adds all children of the actor to the scene
     for (int i = 0; i < actor->getTransform()->getChildCount(); i++)
     {
-        m_actors.addActor(actor->getTransform()->getChildren()[i]->getOwner());
+        m_actors.Add(actor->getTransform()->getChildren()[i]->getOwner());
     }
 }
 
 bool Scene::removeActor(int index)
 {
-    return m_actors.removeActor(index);
+    m_actors.Remove(index);
+    return true;
 }
 
 bool Scene::removeActor(Actor* actor)
 {
-    return m_actors.removeActor(actor);
+    m_actors.Remove(actor);
+    return true;
 }
 
 void Scene::start()
@@ -63,9 +67,9 @@ void Scene::start()
 void Scene::update(float deltaTime)
 {
     //Updates all actors
-    for (int i = 0; i < m_actors.getLength(); i++)
+    for (int i = 0; i < m_actors.Length(); i++)
     {
-        if (!m_actors.getActor(i)->getStarted())
+        if (!m_actors.Get(i)->getStarted())
             m_actors.getActor(i)->start();
 
         m_actors.getActor(i)->update(deltaTime);
