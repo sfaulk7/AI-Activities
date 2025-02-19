@@ -26,7 +26,7 @@ void Scene::addUIElement(Actor* actor)
 
 bool Scene::removeUIElement(int index)
 {
-    return m_UIElements.Remove(index);
+    m_UIElements.Remove(index);
     return true;
 }
 
@@ -69,19 +69,19 @@ void Scene::update(float deltaTime)
     //Updates all actors
     for (int i = 0; i < m_actors.Length(); i++)
     {
-        if (!m_actors.Get(i)->getStarted())
-            m_actors.getActor(i)->start();
+        if (!m_actors[i]->getStarted())
+            m_actors[i]->start();
 
-        m_actors.getActor(i)->update(deltaTime);
+        m_actors[i]->update(deltaTime);
     }
 
     //Checks collision for all actors
-    for (int i = 0; i < m_actors.getLength(); i++)
+    for (int i = 0; i < m_actors.Length(); i++)
     {
-        for (int j = 0; j < m_actors.getLength(); j++)
+        for (int j = 0; j < m_actors.Length(); j++)
         {
-            if (m_actors.getActor(i)->checkForCollision(m_actors.getActor(j)) && j != i && m_actors.getActor(j)->getStarted())
-                m_actors.getActor(i)->onCollision(m_actors.getActor(j));
+            if (m_actors[i]->checkForCollision(m_actors[j]) && j != i && m_actors[j]->getStarted())
+                m_actors[i]->onCollision(m_actors[j]);
         }
     }
 }
@@ -89,40 +89,40 @@ void Scene::update(float deltaTime)
 void Scene::updateUI(float deltaTime)
 {
     //Calls update for all actors in UI array
-    for (int i = 0; i < m_UIElements.getLength(); i++)
+    for (int i = 0; i < m_UIElements.Length(); i++)
     {
-        if (!m_UIElements.getActor(i)->getStarted())
-            m_UIElements.getActor(i)->start();
+        if (!m_UIElements[i]->getStarted())
+            m_UIElements[i]->start();
 
-        m_UIElements.getActor(i)->update(deltaTime);
+        m_UIElements[i]->update(deltaTime);
     }
 }
 
 void Scene::draw()
 {
     //Calls draw for all actors in the array
-    for (int i = 0; i < m_actors.getLength(); i++)
+    for (int i = 0; i < m_actors.Length(); i++)
     {
-        m_actors.getActor(i)->draw();
+        m_actors[i]->draw();
     }
 }
 
 void Scene::drawUI()
 {
     //Calls draw for all actors in UI array
-    for (int i = 0; i < m_UIElements.getLength(); i++)
+    for (int i = 0; i < m_UIElements.Length(); i++)
     {
-        m_UIElements.getActor(i)->draw();
+        m_UIElements[i]->draw();
     }
 }
 
 void Scene::end()
 {
     //Calls end for all actors in the array
-    for (int i = 0; i < m_actors.getLength(); i++)
+    for (int i = 0; i < m_actors.Length(); i++)
     {
-        if (m_actors.getActor(i)->getStarted())
-            m_actors.getActor(i)->end();
+        if (m_actors[i]->getStarted())
+            m_actors[i]->end();
     }
 
     m_started = false;

@@ -39,8 +39,7 @@ public:
 	void RemoveAll(const T* array, int size);
 	void RemoveAll(const DynamicArray<T>& other);
 
-	T* Get(int index);
-	bool Contains(const T item);
+	bool Contains(const T& item);
 
 	//Clear the list; getting rid of references but not what it is refrencing
 	void Clear();
@@ -98,6 +97,8 @@ inline DynamicArray<T>& DynamicArray<T>::operator= (const DynamicArray<T>& other
 	{
 		m_array[i] = other.m_array[i];
 	}
+
+	return *this;
 }
 
 
@@ -315,20 +316,11 @@ inline void DynamicArray<T>::RemoveAll(const DynamicArray<T>& other)
 }
 
 template<typename T>
-inline T* DynamicArray<T>::Get(int index)
+inline bool DynamicArray<T>::Contains(const T& item)
 {
-	if (index < 0 || index >= Length)
-		return nullptr;
-
-	return m_array[index];
-}
-
-template<typename T>
-inline bool DynamicArray<T>::Contains(const T item)
-{
-	for (int i = 0; i < Length; i++)
+	for (int i = 0; i < m_length; i++)
 	{
-		if (Get(i) == item)
+		if (m_array[i] == item)
 			return true;
 	}
 	return false;

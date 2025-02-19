@@ -44,6 +44,12 @@ public:
     /// <param name="value">The new local coordinates to place the transform.</param>
     void setLocalPosition(MathLibrary::Vector2 value);
 
+    void setVelocity(MathLibrary::Vector2 velocity) { m_velocity = velocity; }
+    MathLibrary::Vector2 getVelocity() { return m_velocity; }
+
+    void setMaxVelocity(float velocity) { m_maxVelocity = velocity; }
+    float getMaxVelocity() { return m_maxVelocity; }
+
     /// <returns>A pointer to the transform that has been set as this transforms parent.</returns>
     Transform2D* getParent() { return m_parent; }
 
@@ -129,6 +135,8 @@ public:
     void updateTransforms();
 
 private:
+    float m_maxVelocity;
+    MathLibrary::Vector2 m_velocity;
     MathLibrary::Matrix3* m_globalMatrix;
     MathLibrary::Matrix3* m_localMatrix;
     MathLibrary::Matrix3* m_rotation;

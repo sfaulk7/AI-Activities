@@ -47,9 +47,29 @@ public:
 	/// Called when the actor is going to be destroyed.
 	/// </summary>
 	virtual void onDestroy() {};
+	
+	bool GetEnabled() { return m_enabled; }
+	/// <summary>
+	/// Enables the component.
+	/// </summary>
+	void SetEnabled() { m_enabled = true; };
+	/// <summary>
+	/// Disables the component.
+	/// </summary>
+	void SetDisabled() { m_enabled = false; };
+
+	/// <summary>
+	/// Called when the component is enabled.
+	/// </summary>
+	virtual void onEnable() {};
+	/// <summary>
+	/// Called when the component is disabled.
+	/// </summary>
+	virtual void onDisable() {};
 
 private:
 	const char* m_name;
 	Actor* m_owner;
+	bool m_enabled;
 };
 

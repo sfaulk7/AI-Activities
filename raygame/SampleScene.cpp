@@ -1,24 +1,26 @@
 #include "SampleScene.h"
 #include "SpriteComponent.h"
+#include "SeekComponent.h"
 #include "Transform2D.h"
 
 void SampleScene::start()
 {
 	//This is a better comment
-	Actor* test = new Actor(50, 50, "Test");
-	test->addComponent(new SpriteComponent(test, "Images/player.png"));
-	test->getTransform()->setScale({ 50, 50 });
+	Actor* player = new Actor(50, 50, "Player");
+	player->addComponent(new SpriteComponent(player, "Images/player.png"));
+	player->getTransform()->setScale({ 50, 50 });
 
-	Actor* test2 = new Actor(100, 50, "Test2");
-	test2->addComponent(new SpriteComponent(test2, "Images/bullet.png"));
-	test2->getTransform()->setScale({ 50, 50 });
+	Actor* bullet = new Actor(100, 50, "Bullet");
+	bullet->addComponent(new SpriteComponent(bullet, "Images/bullet.png"));
+	bullet->getTransform()->setScale({ 50, 50 });
 
-	Actor* test3 = new Actor(200, 50, "Test3");
+	Agent* test3 = new Agent(200, 500, "Enemy");
 	test3->addComponent(new SpriteComponent(test3, "Images/enemy.png"));
+	test3->addComponent(new SeekComponent(test3, player));
 	test3->getTransform()->setScale({ 50, 50 });
 	test3->getTransform()->rotate(3.14);
 
-	addActor(test);
-	addActor(test2);
+	addActor(player);
+	addActor(bullet);
 	addActor(test3);
 }
