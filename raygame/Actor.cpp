@@ -3,6 +3,7 @@
 #include <string.h>
 #include "Collider.h"
 #include "Component.h"
+#include "raylib.h"
 
 Actor::Actor()
 {
@@ -43,6 +44,9 @@ void Actor::onCollision(Actor* other)
 void Actor::update(float deltaTime)
 {
     m_transform->updateTransforms();
+
+    MathLibrary::Vector2 mousePosition(GetMousePosition().x, GetMousePosition().y);
+    m_transform->setLocalPosition(mousePosition);
 
     for (int i = 0; i < m_components.Length(); i++)
     {

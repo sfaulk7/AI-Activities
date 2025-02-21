@@ -179,4 +179,3 @@ inline bool Actor::removeComponent(T* componentName)
 
     return false;
 }
-

@@ -14,11 +14,16 @@ void SampleScene::start()
 	bullet->addComponent(new SpriteComponent(bullet, "Images/bullet.png"));
 	bullet->getTransform()->setScale({ 50, 50 });
 
-	Agent* test3 = new Agent(200, 500, "Enemy");
-	test3->addComponent(new SpriteComponent(test3, "Images/enemy.png"));
+	Actor* test3 = new Actor(200, 500, "Enemy");
+	test3->getTransform()->setMaxVelocity(500);
 	test3->addComponent(new SeekComponent(test3, player));
+	//test3->addComponent(new fleeComponent(test3, player));
+	//test3->addComponent(new wanderComponent(test3, player));
+	//test3->addComponent(new pursueComponent(test3, player));
+	//test3->addComponent(new evadeComponent(test3, player));
+	//test3->addComponent(new arriveComponent(test3, player));
+	test3->addComponent(new SpriteComponent(test3, "Images/enemy.png"));
 	test3->getTransform()->setScale({ 50, 50 });
-	test3->getTransform()->rotate(3.14);
 
 	addActor(player);
 	addActor(bullet);

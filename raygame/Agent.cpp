@@ -21,3 +21,8 @@ Agent::Agent(float x, float y, const char* name = "Agent")
     m_transform->setLocalPosition({ x,y });
     m_name = name;
 }
+
+void Agent::SetBehavior(int behavior)
+{
+
+}

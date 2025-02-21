@@ -12,7 +12,7 @@ public:
     /// <param name="texture">Sets the sprites image to be the given texture</param>
     SeekComponent(Actor* owner, Actor* target);
 
-    void update(float deltaTime) override;
+    void update(float deltaTime);
 private:
     Actor* m_target;
 };
