@@ -45,9 +45,6 @@ void Actor::update(float deltaTime)
 {
     m_transform->updateTransforms();
 
-    MathLibrary::Vector2 mousePosition(GetMousePosition().x, GetMousePosition().y);
-    m_transform->setLocalPosition(mousePosition);
-
     for (int i = 0; i < m_components.Length(); i++)
     {
         m_components[i]->update(deltaTime);
@@ -60,6 +57,10 @@ void Actor::draw()
     {
         m_components[i]->draw();
     }
+
+    //This line shows forward direction and velocity
+    MathLibrary::Vector2 targetPoint = this->getTransform()->getLocalPosition() + this->getTransform()->getVelocity();
+    DrawLine(this->getTransform()->getLocalPosition().x, this->getTransform()->getLocalPosition().y, targetPoint.x, targetPoint.y, GREEN);
 }
 
 void Actor::end()

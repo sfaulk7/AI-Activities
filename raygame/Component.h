@@ -1,6 +1,7 @@
 #pragma once
 
 class Actor;
+class Agent;
 
 class Component
 {

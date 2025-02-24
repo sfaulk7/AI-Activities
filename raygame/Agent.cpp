@@ -4,9 +4,9 @@
 #include "Collider.h"
 #include "Component.h"
 
-Agent::Agent()
+Agent::Agent() : Actor()
 {
-    m_transform = new Transform2D(this);
+    Actor::m_transform = new Transform2D(this);
 }
 
 Agent::~Agent()
@@ -20,9 +20,19 @@ Agent::Agent(float x, float y, const char* name = "Agent")
     m_transform = new Transform2D(this);
     m_transform->setLocalPosition({ x,y });
     m_name = name;
+    
 }
 
 void Agent::SetBehavior(int behavior)
 {
+    for (int i = 0; i <= 5; i++)
+    {
+        if (i >= m_components.Length())
+            break;
+        if (i == behavior)
+            this->m_components[i]->SetEnabled();
+        else
+            this->m_components[i]->SetDisabled();
 
+    }
 }

@@ -90,7 +90,6 @@ public:
 protected:
     const char* m_name;
 
-private:
     bool m_started;
     Transform2D* m_transform;
     Collider* m_collider;
@@ -150,8 +149,6 @@ inline T* Actor::addComponent(T* component)
         m_components.Add(component);
         return component;
     }
-
-
 }
 template<typename T>
 inline bool Actor::removeComponent(T* componentName)

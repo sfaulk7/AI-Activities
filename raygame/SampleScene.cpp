@@ -1,31 +1,43 @@
+#include "Transform2D.h"
 #include "SampleScene.h"
 #include "SpriteComponent.h"
+#include "BehaviourComponent.h"
+#include "MousePositionComponent.h"
 #include "SeekComponent.h"
-#include "Transform2D.h"
+#include "FleeComponent.h"
+#include "WanderComponent.h"
+#include "PursueComponent.h"
+#include "EvadeComponent.h"
+#include "ArriveComponent.h"
 
 void SampleScene::start()
 {
-	//This is a better comment
-	Actor* player = new Actor(50, 50, "Player");
+	Actor* mouse = new Actor(100, 100, "Mouse");
+	mouse->addComponent(new SpriteComponent(mouse, "Images/bullet.png"));
+	mouse->addComponent(new MousePositionComponent(mouse));
+	mouse->getTransform()->setScale({ 50, 50 });
+
+	/*Actor* player = new Actor(50, 50, "Player");
+	player->getTransform()->setMaxVelocity(500);
 	player->addComponent(new SpriteComponent(player, "Images/player.png"));
-	player->getTransform()->setScale({ 50, 50 });
+	player->addComponent(new SeekComponent(player, mouse));
+	player->getTransform()->setScale({ 50, 50 });*/
 
-	Actor* bullet = new Actor(100, 50, "Bullet");
-	bullet->addComponent(new SpriteComponent(bullet, "Images/bullet.png"));
-	bullet->getTransform()->setScale({ 50, 50 });
+	Agent* enemy = new Agent(200, 500, "Enemy");
+	enemy->getTransform()->setMaxVelocity(500);
+	enemy->addComponent(new SeekComponent(enemy, mouse)); //Behavior 0
+	enemy->addComponent(new FleeComponent(enemy, mouse)); //Behavior 1
+	enemy->addComponent(new WanderComponent(enemy)); //Behavior 2
+	enemy->addComponent(new PursueComponent(enemy, mouse)); //Behavior 3
+	enemy->addComponent(new EvadeComponent(enemy, mouse)); //Behavior 4
+	enemy->addComponent(new ArriveComponent(enemy, mouse)); //Behavior 5d
 
-	Actor* test3 = new Actor(200, 500, "Enemy");
-	test3->getTransform()->setMaxVelocity(500);
-	test3->addComponent(new SeekComponent(test3, player));
-	//test3->addComponent(new fleeComponent(test3, player));
-	//test3->addComponent(new wanderComponent(test3, player));
-	//test3->addComponent(new pursueComponent(test3, player));
-	//test3->addComponent(new evadeComponent(test3, player));
-	//test3->addComponent(new arriveComponent(test3, player));
-	test3->addComponent(new SpriteComponent(test3, "Images/enemy.png"));
-	test3->getTransform()->setScale({ 50, 50 });
+	enemy->addComponent(new BehaviourComponent(enemy));
+	enemy->addComponent(new SpriteComponent(enemy, "Images/enemy.png"));
+	enemy->getTransform()->setScale({ 50, 50 });
 
-	addActor(player);
-	addActor(bullet);
-	addActor(test3);
+
+	addActor(mouse);
+	//addActor(player);
+	addActor(enemy);
 }

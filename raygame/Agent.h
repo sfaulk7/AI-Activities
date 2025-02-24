@@ -25,9 +25,10 @@ public:
     /// <param name="Arrive">: 5 </param>
     void SetBehavior(int behavior);
 
+
 private:
-    bool m_started;
-    Transform2D* m_transform;
-    Collider* m_collider;
-    DynamicArray<Component*> m_components;
+    //bool m_started;
+    //Transform2D* m_transform;
+    //Collider* m_collider;
+    //DynamicArray<Component*> m_components;
 };

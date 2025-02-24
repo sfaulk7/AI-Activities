@@ -12,6 +12,9 @@
     <Filter Include="Images">
       <UniqueIdentifier>{e25febf1-d7ab-4e8f-ac3f-85da565f7619}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Behaviors">
+      <UniqueIdentifier>{932c788d-065e-47b4-a957-d2b77ae13b29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,7 +54,28 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SeekComponent.cpp">
+      <Filter>Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="FleeComponent.cpp">
+      <Filter>Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="WanderComponent.cpp">
+      <Filter>Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="PursueComponent.cpp">
+      <Filter>Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="EvadeComponent.cpp">
+      <Filter>Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="ArriveComponent.cpp">
+      <Filter>Behaviors</Filter>
+    </ClCompile>
+    <ClCompile Include="MousePositionComponent.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviourComponent.cpp">
+      <Filter>Behaviors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,10 +116,28 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SeekComponent.h">
+      <Filter>Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="FleeComponent.h">
+      <Filter>Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="WanderComponent.h">
+      <Filter>Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="PursueComponent.h">
+      <Filter>Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="EvadeComponent.h">
+      <Filter>Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="ArriveComponent.h">
+      <Filter>Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="MousePositionComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Behavior.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BehaviourComponent.h">
+      <Filter>Behaviors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
