@@ -19,7 +19,7 @@ void SeekComponent::update(float deltaTime)
 {
 	if (GetEnabled() == true)
 	{
-		DrawText("CurrentBehavior: Seek (0)", 100, 40, 40, YELLOW);
+		//DrawText("CurrentBehavior: Seek (0)", 100, 40, 40, YELLOW);
 
 		//Puts the positions and the owner's velocity into variables for ease of use
 		MathLibrary::Vector2 ownerPosition = getOwner()->getTransform()->getLocalPosition();

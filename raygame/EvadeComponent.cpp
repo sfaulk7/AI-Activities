@@ -19,7 +19,7 @@ void EvadeComponent::update(float deltaTime)
 {
 	if (this->GetEnabled() == true)
 	{
-		DrawText("CurrentBehavior: Evade (4)", 100, 40, 40, YELLOW);
+		//DrawText("CurrentBehavior: Evade (4)", 100, 40, 40, YELLOW);
 
 		//Puts the positions and the owner's velocity into variables for ease of use
 		MathLibrary::Vector2 ownerPosition = getOwner()->getTransform()->getLocalPosition();
