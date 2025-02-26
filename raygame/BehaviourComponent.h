@@ -13,4 +13,6 @@ public:
 private:
     Agent* m_agentOwner;
     int m_currentBehavior;
+    bool m_tagActive;
+    int m_selectionBoxPosition;
 };

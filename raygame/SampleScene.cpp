@@ -9,6 +9,7 @@
 #include "PursueComponent.h"
 #include "EvadeComponent.h"
 #include "ArriveComponent.h"
+#include "FiniteStateMachine.h"
 
 void SampleScene::start()
 {
@@ -30,10 +31,11 @@ void SampleScene::start()
 	enemy->addComponent(new WanderComponent(enemy)); //Behavior 2
 	enemy->addComponent(new PursueComponent(enemy, mouse)); //Behavior 3
 	enemy->addComponent(new EvadeComponent(enemy, mouse)); //Behavior 4
-	enemy->addComponent(new ArriveComponent(enemy, mouse)); //Behavior 5d
+	enemy->addComponent(new ArriveComponent(enemy, mouse)); //Behavior 5
 
 	enemy->addComponent(new BehaviourComponent(enemy));
 	enemy->addComponent(new SpriteComponent(enemy, "Images/enemy.png"));
+	enemy->addComponent(new FiniteStateMachine(enemy, mouse));
 	enemy->getTransform()->setScale({ 50, 50 });
 
 

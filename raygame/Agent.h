@@ -23,7 +23,20 @@ public:
     /// <param name="Persue">: 3 </param>
     /// <param name="Evade">: 4 </param>
     /// <param name="Arrive">: 5 </param>
-    void SetBehavior(int behavior);
+    void EnableBehavior(int behavior);
+
+    void DisableBehavior(int behavior);
+
+    void EnableAllBehaviors();
+
+    void DisableAllBehaviors();
+
+    bool GetBehaviorStatus(int behaviour);
+
+    void EnableTag();
+    void DisableTag();
+
+
 
 
 private:

@@ -40,6 +40,8 @@ public:
     /// <returns></returns>
     const char* getName() { return m_name; }
 
+    int getComponentCount() { m_components.Length(); };
+
     template<typename T>
     T* getComponent(T* componentName);
 
