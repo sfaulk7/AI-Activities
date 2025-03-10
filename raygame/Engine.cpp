@@ -3,6 +3,7 @@
 #include "Transform2D.h"
 #include "SteeringBehaviorsScene.h"
 #include "FiniteStateMachineScene.h"
+#include "DijkstrasSearchScene.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -33,8 +34,11 @@ void Engine::start()
 	
 	addScene(new SteeringBehaviorsScene()); //scene index 0
 	addScene(new FiniteStateMachineScene()); //scene index 1
+	addScene(new DijkstrasSearchScene()); //scene index 2
 
 	//Start the scenes
+	m_currentSceneIndex = 2;
+	m_scenes[m_currentSceneIndex]->start();
 	m_currentSceneIndex = 1;
 	m_scenes[m_currentSceneIndex]->start();
 	m_currentSceneIndex = 0;
@@ -72,7 +76,7 @@ void Engine::update(float deltaTime)
 	{
 		m_currentSceneIndex++;
 
-		if (m_currentSceneIndex >= 2)
+		if (m_currentSceneIndex >= 3)
 		{
 			m_currentSceneIndex = 0;
 		}

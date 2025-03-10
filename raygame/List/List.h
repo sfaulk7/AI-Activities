@@ -27,6 +27,7 @@ public:
 	T popBack();
 	bool insert(const T& value, int index);
 	int remove(const T& value);
+	Iterator<T> find(const T& value);
 	T first();
 	T last();
 	Iterator<T> begin() const;
@@ -266,6 +267,17 @@ inline int List<T>::remove(const T& value)
 		}
 	}
 	return count;
+}
+
+template<typename T>
+inline Iterator<T> List<T>::find(const T& value)
+{
+	for (Iterator<T> iter = begin(); iter != end(); iter++)
+	{
+		if (*iter == value)
+			return iter;
+	}
+	return Iterator<T>();
 }
 
 template<typename T>

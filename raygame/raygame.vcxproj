@@ -154,6 +154,7 @@
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Component.cpp" />
+    <ClCompile Include="DijkstrasSearchScene.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EvadeComponent.cpp" />
     <ClCompile Include="FiniteStateMachine.cpp" />
@@ -161,6 +162,8 @@
     <ClCompile Include="FleeComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MousePositionComponent.cpp" />
+    <ClCompile Include="NodeMap.cpp" />
+    <ClCompile Include="Pathfinding.cpp" />
     <ClCompile Include="PursueComponent.cpp" />
     <ClCompile Include="SteeringBehaviorsScene.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -178,6 +181,7 @@
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="DijkstrasSearchScene.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EvadeComponent.h" />
@@ -185,6 +189,7 @@
     <ClInclude Include="FiniteStateMachineScene.h" />
     <ClInclude Include="FleeComponent.h" />
     <ClInclude Include="MousePositionComponent.h" />
+    <ClInclude Include="NodeMap.h" />
     <ClInclude Include="Pathfinding.h" />
     <ClInclude Include="PursueComponent.h" />
     <ClInclude Include="SteeringBehaviorsScene.h" />
