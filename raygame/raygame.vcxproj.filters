@@ -15,6 +15,12 @@
     <Filter Include="Behaviors">
       <UniqueIdentifier>{932c788d-065e-47b4-a957-d2b77ae13b29}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{7256852e-3685-4a2b-804e-efdf58d720ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pathfinding">
+      <UniqueIdentifier>{9a2f34d8-5c06-40e0-bc0b-8b686d1d7bfe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,9 +53,6 @@
     <ClCompile Include="Component.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SampleScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Agent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -80,6 +83,12 @@
     <ClCompile Include="FiniteStateMachine.cpp">
       <Filter>Behaviors</Filter>
     </ClCompile>
+    <ClCompile Include="SteeringBehaviorsScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="FiniteStateMachineScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -107,9 +116,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Component.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SampleScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DynamicArray.h">
@@ -144,6 +150,15 @@
     </ClInclude>
     <ClInclude Include="FiniteStateMachine.h">
       <Filter>Behaviors</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringBehaviorsScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="FiniteStateMachineScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Pathfinding.h">
+      <Filter>Pathfinding</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

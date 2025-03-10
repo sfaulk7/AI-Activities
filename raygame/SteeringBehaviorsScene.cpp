@@ -1,5 +1,5 @@
 #include "Transform2D.h"
-#include "SampleScene.h"
+#include "SteeringBehaviorsScene.h"
 #include "SpriteComponent.h"
 #include "BehaviourComponent.h"
 #include "MousePositionComponent.h"
@@ -11,18 +11,12 @@
 #include "ArriveComponent.h"
 #include "FiniteStateMachine.h"
 
-void SampleScene::start()
+void SteeringBehaviorsScene::start()
 {
 	Actor* mouse = new Actor(100, 100, "Mouse");
 	mouse->addComponent(new SpriteComponent(mouse, "Images/bullet.png"));
 	mouse->addComponent(new MousePositionComponent(mouse));
 	mouse->getTransform()->setScale({ 50, 50 });
-
-	/*Actor* player = new Actor(50, 50, "Player");
-	player->getTransform()->setMaxVelocity(500);
-	player->addComponent(new SpriteComponent(player, "Images/player.png"));
-	player->addComponent(new SeekComponent(player, mouse));
-	player->getTransform()->setScale({ 50, 50 });*/
 
 	Agent* enemy = new Agent(200, 500, "Enemy");
 	enemy->getTransform()->setMaxVelocity(500);
@@ -35,11 +29,8 @@ void SampleScene::start()
 
 	enemy->addComponent(new BehaviourComponent(enemy));
 	enemy->addComponent(new SpriteComponent(enemy, "Images/enemy.png"));
-	enemy->addComponent(new FiniteStateMachine(enemy, mouse));
 	enemy->getTransform()->setScale({ 50, 50 });
 
-
 	addActor(mouse);
-	//addActor(player);
 	addActor(enemy);
 }

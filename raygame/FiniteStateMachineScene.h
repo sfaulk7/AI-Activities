@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-class SampleScene :
+class FiniteStateMachineScene :
     public Scene
 {
 public:

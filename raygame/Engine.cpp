@@ -1,7 +1,8 @@
 #include "Engine.h"
 #include "raylib.h"
 #include "Transform2D.h"
-#include "SampleScene.h"
+#include "SteeringBehaviorsScene.h"
+#include "FiniteStateMachineScene.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -28,19 +29,54 @@ void Engine::start()
 	InitWindow(screenWidth, screenHeight, "Intro To C++");
 	SetTargetFPS(0);
 
-	//Start the scene
-	m_currentSceneIndex = addScene(new SampleScene());
+	//Add the scenes
+	
+	addScene(new SteeringBehaviorsScene()); //scene index 0
+	addScene(new FiniteStateMachineScene()); //scene index 1
+
+	//Start the scenes
+	m_currentSceneIndex = 1;
+	m_scenes[m_currentSceneIndex]->start();
+	m_currentSceneIndex = 0;
 	m_scenes[m_currentSceneIndex]->start();
 }
 
 void Engine::update(float deltaTime)
 {
+	//Show scene control
+	DrawText("ENTER to swap between scenes", 10, 950, 10, YELLOW);
+	switch (m_currentSceneIndex)
+	{
+		case 0: // current scene is SteeringBehaviors
+		{
+			DrawText("Current Scene: SteeringBehaviors", 10, 960, 10, YELLOW);
+			break;
+		}
+
+		case 1: // current scene is FiniteStateMachine
+		{
+			DrawText("Current Scene: FiniteStateMachine", 10, 960, 10, YELLOW);
+			break;
+		}
+	}
+
 	//Clean up actors marked for destruction
 	destroyActorsInList();
 
 	//Update scene
 	m_scenes[m_currentSceneIndex]->update(deltaTime);
 	m_scenes[m_currentSceneIndex]->updateUI(deltaTime);
+
+	//Change scene to finite state machine
+	if (IsKeyPressed(KEY_ENTER))
+	{
+		m_currentSceneIndex++;
+
+		if (m_currentSceneIndex >= 2)
+		{
+			m_currentSceneIndex = 0;
+		}
+	}
 }
 
 void Engine::draw()
