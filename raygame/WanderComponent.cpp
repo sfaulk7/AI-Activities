@@ -14,7 +14,9 @@ WanderComponent::~WanderComponent()
 WanderComponent::WanderComponent(Actor* owner) : Component(owner, "WanderComponent")
 {
 	this->SetDisabled();
+	//m_wandered is used to determine if the Agent has finished wandering and needs to calculate a new position to wander to 
 	m_wandered = true;
+	//m_count is used to decide how long the Agent will attempt to wander to the specified point
 	m_count = 0;
 	//Set scaler / distance that can wander
 	m_scale = 200;
