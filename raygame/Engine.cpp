@@ -4,6 +4,7 @@
 #include "SteeringBehaviorsScene.h"
 #include "FiniteStateMachineScene.h"
 #include "DijkstrasSearchScene.h"
+#include "AStarSearchScene.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -35,8 +36,11 @@ void Engine::start()
 	addScene(new SteeringBehaviorsScene()); //scene index 0
 	addScene(new FiniteStateMachineScene()); //scene index 1
 	addScene(new DijkstrasSearchScene()); //scene index 2
+	addScene(new AStarSearchScene()); //scene index 3
 
 	//Start the scenes
+	m_currentSceneIndex = 3;
+	m_scenes[m_currentSceneIndex]->start();
 	m_currentSceneIndex = 2;
 	m_scenes[m_currentSceneIndex]->start();
 	m_currentSceneIndex = 1;
@@ -62,6 +66,18 @@ void Engine::update(float deltaTime)
 			DrawText("Current Scene: FiniteStateMachine", 10, 960, 10, YELLOW);
 			break;
 		}
+
+		case 2: // current scene is DijkstrasSearchScene
+		{
+			DrawText("Current Scene: DijkstrasSearchScene", 10, 960, 10, YELLOW);
+			break;
+		}
+
+		case 3: // current scene is AStarSearchScene
+		{
+			DrawText("Current Scene: AStarSearchScene", 10, 960, 10, YELLOW);
+			break;
+		}
 	}
 
 	//Clean up actors marked for destruction
@@ -71,14 +87,27 @@ void Engine::update(float deltaTime)
 	m_scenes[m_currentSceneIndex]->update(deltaTime);
 	m_scenes[m_currentSceneIndex]->updateUI(deltaTime);
 
-	//Change scene to finite state machine
+	//Changes between scenes
 	if (IsKeyPressed(KEY_ENTER))
 	{
 		m_currentSceneIndex++;
 
-		if (m_currentSceneIndex >= 3)
+		if (m_currentSceneIndex >= 4)
 		{
 			m_currentSceneIndex = 0;
+		}
+	}
+
+	//Chages between Dijkstras and AStar
+	if (IsKeyPressed(KEY_SPACE))
+	{
+		if (m_currentSceneIndex == 2)
+		{
+			m_currentSceneIndex = 3;
+		}
+		else
+		{
+			m_currentSceneIndex = 2;
 		}
 	}
 }

@@ -89,13 +89,28 @@
     <ClCompile Include="FiniteStateMachineScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Pathfinding.cpp">
+    <ClCompile Include="PathFinding\DijkstrasPathfinding.cpp">
       <Filter>Pathfinding</Filter>
     </ClCompile>
     <ClCompile Include="DijkstrasSearchScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="NodeMap.cpp">
+    <ClCompile Include="PathFinding\DijkstrasNodeMap.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFinding\DijkstrasPathAgent.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFinding\AStarPathfinding.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="AStarSearchScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFinding\AStarNodeMap.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFinding\AStarPathAgent.cpp">
       <Filter>Pathfinding</Filter>
     </ClCompile>
   </ItemGroup>
@@ -166,13 +181,28 @@
     <ClInclude Include="FiniteStateMachineScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Pathfinding.h">
+    <ClInclude Include="PathFinding\DijkstrasPathfinding.h">
       <Filter>Pathfinding</Filter>
     </ClInclude>
     <ClInclude Include="DijkstrasSearchScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="NodeMap.h">
+    <ClInclude Include="PathFinding\DijkStrasNodeMap.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFinding\DijkstrasPathAgent.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFinding\AStarPathfinding.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="AStarSearchScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFinding\AStarPathAgent.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFinding\AStarNodeMap.h">
       <Filter>Pathfinding</Filter>
     </ClInclude>
   </ItemGroup>

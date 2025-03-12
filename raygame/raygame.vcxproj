@@ -150,6 +150,9 @@
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="ArriveComponent.cpp" />
+    <ClCompile Include="PathFinding\AStarNodeMap.cpp" />
+    <ClCompile Include="PathFinding\AStarPathAgent.cpp" />
+    <ClCompile Include="PathFinding\AStarPathfinding.cpp" />
     <ClCompile Include="BehaviourComponent.cpp" />
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collider.cpp" />
@@ -162,8 +165,10 @@
     <ClCompile Include="FleeComponent.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MousePositionComponent.cpp" />
-    <ClCompile Include="NodeMap.cpp" />
-    <ClCompile Include="Pathfinding.cpp" />
+    <ClCompile Include="AStarSearchScene.cpp" />
+    <ClCompile Include="PathFinding\DijkstrasNodeMap.cpp" />
+    <ClCompile Include="PathFinding\DijkstrasPathAgent.cpp" />
+    <ClCompile Include="PathFinding\DijkstrasPathfinding.cpp" />
     <ClCompile Include="PursueComponent.cpp" />
     <ClCompile Include="SteeringBehaviorsScene.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -177,6 +182,9 @@
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Agent.h" />
     <ClInclude Include="ArriveComponent.h" />
+    <ClInclude Include="PathFinding\AStarNodeMap.h" />
+    <ClInclude Include="PathFinding\AStarPathAgent.h" />
+    <ClInclude Include="PathFinding\AStarPathfinding.h" />
     <ClInclude Include="BehaviourComponent.h" />
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collider.h" />
@@ -189,8 +197,10 @@
     <ClInclude Include="FiniteStateMachineScene.h" />
     <ClInclude Include="FleeComponent.h" />
     <ClInclude Include="MousePositionComponent.h" />
-    <ClInclude Include="NodeMap.h" />
-    <ClInclude Include="Pathfinding.h" />
+    <ClInclude Include="AStarSearchScene.h" />
+    <ClInclude Include="PathFinding\DijkStrasNodeMap.h" />
+    <ClInclude Include="PathFinding\DijkstrasPathAgent.h" />
+    <ClInclude Include="PathFinding\DijkstrasPathfinding.h" />
     <ClInclude Include="PursueComponent.h" />
     <ClInclude Include="SteeringBehaviorsScene.h" />
     <ClInclude Include="Scene.h" />
