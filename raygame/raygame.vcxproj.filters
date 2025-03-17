@@ -113,6 +113,9 @@
     <ClCompile Include="PathFinding\AStarPathAgent.cpp">
       <Filter>Pathfinding</Filter>
     </ClCompile>
+    <ClCompile Include="SimulationScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -204,6 +207,9 @@
     </ClInclude>
     <ClInclude Include="PathFinding\AStarNodeMap.h">
       <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="SimulationScene.h">
+      <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -170,6 +170,7 @@
     <ClCompile Include="PathFinding\DijkstrasPathAgent.cpp" />
     <ClCompile Include="PathFinding\DijkstrasPathfinding.cpp" />
     <ClCompile Include="PursueComponent.cpp" />
+    <ClCompile Include="SimulationScene.cpp" />
     <ClCompile Include="SteeringBehaviorsScene.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SeekComponent.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="PathFinding\DijkstrasPathAgent.h" />
     <ClInclude Include="PathFinding\DijkstrasPathfinding.h" />
     <ClInclude Include="PursueComponent.h" />
+    <ClInclude Include="SimulationScene.h" />
     <ClInclude Include="SteeringBehaviorsScene.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SeekComponent.h" />

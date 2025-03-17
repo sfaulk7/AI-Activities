@@ -1,6 +1,15 @@
 #pragma once
 #include "Component.h"
 
+enum State
+{
+    STATE_WANDER,
+    STATE_SEEKERSEEK,
+    STATE_SEEKERSEEKANDPURSUE,
+    STATE_RUNNERFLEE,
+    STATE_RUNNERFLEEANDEVADE
+};
+
 class FiniteStateMachine : public Component
 {
 public:
@@ -9,6 +18,12 @@ public:
 
     FiniteStateMachine(Agent* owner, Actor* Target);
 
+    void StateHandler();
+    void WanderStateBehavior();
+    void SeekStateBehavior();
+    void SeekAndPursueStateBehavior();
+    void FleeStateBehavior();
+    void FleeAndEvadeStateBehavior();
     void update(float deltaTime);
 private:
     int m_currentState;
