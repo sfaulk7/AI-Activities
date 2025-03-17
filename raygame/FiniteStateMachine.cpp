@@ -57,7 +57,7 @@ void FiniteStateMachine::StateHandler()
 void FiniteStateMachine::WanderStateBehavior()
 {
 	//A check so that the state properly changes if the user uses the T keybind to activate/deactivate tag
-	if (m_tagActive = true)
+	if (m_tagActive == true)
 	{
 		//Seeker or Runner
 		if (m_isSeeker == true)
