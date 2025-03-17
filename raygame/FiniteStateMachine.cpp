@@ -298,7 +298,7 @@ void FiniteStateMachine::update(float deltaTime)
 		float detectionDistance = distanceVector.getMagnitude();
 
 		//Tell user that you can swap tag active
-		DrawText("Press T to swap active or inactive", 100, 12t0, 20, YELLOW);
+		DrawText("Press T to swap active or inactive", 100, 12, 20, YELLOW);
 		//Swap tag to be active or inactive outside of normal function
 		if (IsKeyPressed(KEY_T))
 		{
