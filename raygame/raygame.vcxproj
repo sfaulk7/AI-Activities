@@ -150,6 +150,7 @@
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Agent.cpp" />
     <ClCompile Include="ArriveComponent.cpp" />
+    <ClCompile Include="DecisionTreeScene.cpp" />
     <ClCompile Include="PathFinding\AStarNodeMap.cpp" />
     <ClCompile Include="PathFinding\AStarPathAgent.cpp" />
     <ClCompile Include="PathFinding\AStarPathfinding.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Agent.h" />
     <ClInclude Include="ArriveComponent.h" />
+    <ClInclude Include="DecisionTreeScene.h" />
     <ClInclude Include="PathFinding\AStarNodeMap.h" />
     <ClInclude Include="PathFinding\AStarPathAgent.h" />
     <ClInclude Include="PathFinding\AStarPathfinding.h" />

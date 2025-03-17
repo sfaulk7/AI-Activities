@@ -116,6 +116,9 @@
     <ClCompile Include="SimulationScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="DecisionTreeScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -209,6 +212,9 @@
       <Filter>Pathfinding</Filter>
     </ClInclude>
     <ClInclude Include="SimulationScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionTreeScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
   </ItemGroup>
