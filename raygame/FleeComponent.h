@@ -10,6 +10,7 @@ public:
     /// Loads the given texture
     /// </summary>
     /// <param name="texture">Sets the sprites image to be the given texture</param>
+    void ChangeTarget(Actor* NewTarget);
     FleeComponent(Actor* owner, Actor* target);
 
     void update(float deltaTime);

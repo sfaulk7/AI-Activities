@@ -8,6 +8,7 @@ public:
     ~EvadeComponent();
 
     EvadeComponent(Actor* owner, Actor* target);
+    void ChangeTarget(Actor* target);
 
     void update(float deltaTime);
 private:

@@ -1,6 +1,22 @@
 #include "SimulationScene.h"
 #include "Pathfinding/AStarPathfinding.h"
 #include "Pathfinding/DijkstrasPathfinding.h"
+#include "Transform2D.h"
+#include "SteeringBehaviorsScene.h"
+#include "SpriteComponent.h"
+#include "BehaviourComponent.h"
+#include "MousePositionComponent.h"
+#include "SeekComponent.h"
+#include "FleeComponent.h"
+#include "WanderComponent.h"
+#include "PursueComponent.h"
+#include "EvadeComponent.h"
+#include "ArriveComponent.h"
+#include "FiniteStateMachine.h"
+#include "CivilianBehaviorManager.h"
+#include "TraderBehaviorManager.h"
+#include "KnightBehaviorManager.h"
+#include "KoboldBehaviorManager.h"
 
 /// <summary>
 /// Simulation functioning
@@ -28,16 +44,6 @@
 /// </summary>
 
 void SimulationScene::start()
-{
-
-}
-
-void SimulationScene::update(float deltaTime)
-{
-
-}
-
-void SimulationScene::end()
 {
 
 }

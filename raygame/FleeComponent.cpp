@@ -9,6 +9,11 @@ FleeComponent::~FleeComponent()
 	SetDisabled();
 }
 
+void FleeComponent::ChangeTarget(Actor* NewTarget)
+{
+	m_target = NewTarget;
+}
+
 FleeComponent::FleeComponent(Actor* owner, Actor* Target) : Component(owner, "FleeComponent")
 {
 	m_target = Target;

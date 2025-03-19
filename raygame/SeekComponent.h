@@ -7,6 +7,7 @@ public:
     SeekComponent() {}
     ~SeekComponent();
 
+    void ChangeTarget(Actor* NewTarget);
     SeekComponent(Actor* owner, Actor* target);
 
     void update(float deltaTime);

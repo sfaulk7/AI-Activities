@@ -14,7 +14,7 @@ BehaviourComponent::BehaviourComponent(Agent* owner) : Component(owner, "Behavio
 {
 	m_agentOwner = owner;
 	m_currentBehavior = 0;
-	m_agentOwner->DisableAllBehaviors();
+	m_agentOwner->DisableAllBehaviors(5);
 	m_agentOwner->EnableBehavior(m_currentBehavior);
 	this->SetEnabled();
 
@@ -192,7 +192,7 @@ void BehaviourComponent::update(float deltaTime)
 		//Disable all behaviors
 		if (IsKeyPressed(KEY_Z))
 		{
-			m_agentOwner->DisableAllBehaviors();
+			m_agentOwner->DisableAllBehaviors(5);
 		}
 		//Enable all behaviors
 		if (IsKeyPressed(KEY_C))

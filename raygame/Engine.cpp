@@ -5,6 +5,8 @@
 #include "FiniteStateMachineScene.h"
 #include "DijkstrasSearchScene.h"
 #include "AStarSearchScene.h"
+#include "DecisionTreeScene.h"
+#include "SimulationScene.h"
 
 bool Engine::m_applicationShouldClose = false;
 Scene** Engine::m_scenes = new Scene*;
@@ -37,15 +39,18 @@ void Engine::start()
 	addScene(new FiniteStateMachineScene()); //scene index 1
 	addScene(new DijkstrasSearchScene()); //scene index 2
 	addScene(new AStarSearchScene()); //scene index 3
+	addScene(new DecisionTreeScene()); //scene index 4
 
 	//Start the scenes
+	m_currentSceneIndex = 0;
+	m_scenes[m_currentSceneIndex]->start();
 	m_currentSceneIndex = 3;
 	m_scenes[m_currentSceneIndex]->start();
 	m_currentSceneIndex = 2;
 	m_scenes[m_currentSceneIndex]->start();
 	m_currentSceneIndex = 1;
 	m_scenes[m_currentSceneIndex]->start();
-	m_currentSceneIndex = 0;
+	m_currentSceneIndex = 4;
 	m_scenes[m_currentSceneIndex]->start();
 }
 
@@ -78,6 +83,12 @@ void Engine::update(float deltaTime)
 			DrawText("Current Scene: AStarSearchScene", 10, 960, 10, YELLOW);
 			break;
 		}
+
+		case 4: // current scene is DecisionTreeScene
+		{
+			DrawText("Current Scene: DecisionTreeScene", 10, 960, 10, YELLOW);
+			break;
+		}
 	}
 
 	//Clean up actors marked for destruction
@@ -92,7 +103,7 @@ void Engine::update(float deltaTime)
 	{
 		m_currentSceneIndex++;
 
-		if (m_currentSceneIndex >= 4)
+		if (m_currentSceneIndex >= 5)
 		{
 			m_currentSceneIndex = 0;
 		}

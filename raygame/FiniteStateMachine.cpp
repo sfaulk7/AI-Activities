@@ -106,7 +106,7 @@ void FiniteStateMachine::WanderStateBehavior()
 	}
 
 	//Start wandering
-	m_agentOwner->DisableAllBehaviors();
+	m_agentOwner->DisableAllBehaviors(2);
 	m_agentOwner->EnableBehavior(2);
 }
 
@@ -150,7 +150,7 @@ void FiniteStateMachine::SeekStateBehavior()
 	}
 
 	m_timeAsSeeker++;
-	m_agentOwner->DisableAllBehaviors();
+	m_agentOwner->DisableAllBehaviors(2);
 	m_agentOwner->EnableBehavior(0);
 }
 
@@ -188,7 +188,7 @@ void FiniteStateMachine::SeekAndPursueStateBehavior()
 	}
 
 	m_timeAsSeeker++;
-	m_agentOwner->DisableAllBehaviors();
+	m_agentOwner->DisableAllBehaviors(2);
 	m_agentOwner->EnableBehavior(0);
 	m_agentOwner->EnableBehavior(3);
 
@@ -228,7 +228,7 @@ void FiniteStateMachine::FleeStateBehavior()
 	}
 
 	m_timeAsRunner++;
-	m_agentOwner->DisableAllBehaviors();
+	m_agentOwner->DisableAllBehaviors(2);
 	m_agentOwner->EnableBehavior(1);
 
 
@@ -274,7 +274,7 @@ void FiniteStateMachine::FleeAndEvadeStateBehavior()
 	}
 
 	m_timeAsRunner++;
-	m_agentOwner->DisableAllBehaviors();
+	m_agentOwner->DisableAllBehaviors(2);
 	m_agentOwner->EnableBehavior(1);
 	m_agentOwner->EnableBehavior(4);
 }

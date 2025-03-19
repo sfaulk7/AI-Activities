@@ -15,6 +15,11 @@ EvadeComponent::EvadeComponent(Actor* owner, Actor* Target) : Component(owner, "
 	this->SetDisabled();
 }
 
+void EvadeComponent::ChangeTarget(Actor* target)
+{
+	m_target = target;
+}
+
 void EvadeComponent::update(float deltaTime)
 {
 	if (this->GetEnabled() == true)

@@ -29,7 +29,7 @@ public:
 
     void EnableAllBehaviors();
 
-    void DisableAllBehaviors();
+    void DisableAllBehaviors(int count);
 
     bool GetBehaviorStatus(int behaviour);
 

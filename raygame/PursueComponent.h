@@ -8,6 +8,7 @@ public:
     ~PursueComponent();
 
     PursueComponent(Actor* owner, Actor* target);
+    void ChangeTarget(Actor* target);
 
     void update(float deltaTime);
 private:

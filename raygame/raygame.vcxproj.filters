@@ -21,6 +21,9 @@
     <Filter Include="Pathfinding">
       <UniqueIdentifier>{9a2f34d8-5c06-40e0-bc0b-8b686d1d7bfe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SimulationEnitiesCreators">
+      <UniqueIdentifier>{5a7fd6fc-414a-4b88-90e8-283d263b37bb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -119,6 +122,21 @@
     <ClCompile Include="DecisionTreeScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="KnightBehaviorManager.cpp">
+      <Filter>SimulationEnitiesCreators</Filter>
+    </ClCompile>
+    <ClCompile Include="KoboldBehaviorManager.cpp">
+      <Filter>SimulationEnitiesCreators</Filter>
+    </ClCompile>
+    <ClCompile Include="TraderBehaviorManager.cpp">
+      <Filter>SimulationEnitiesCreators</Filter>
+    </ClCompile>
+    <ClCompile Include="CivilianBehaviorManager.cpp">
+      <Filter>SimulationEnitiesCreators</Filter>
+    </ClCompile>
+    <ClCompile Include="DecisionTreeComponent.cpp">
+      <Filter>Behaviors</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h">
@@ -216,6 +234,21 @@
     </ClInclude>
     <ClInclude Include="DecisionTreeScene.h">
       <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightBehaviorManager.h">
+      <Filter>SimulationEnitiesCreators</Filter>
+    </ClInclude>
+    <ClInclude Include="KoboldBehaviorManager.h">
+      <Filter>SimulationEnitiesCreators</Filter>
+    </ClInclude>
+    <ClInclude Include="TraderBehaviorManager.h">
+      <Filter>SimulationEnitiesCreators</Filter>
+    </ClInclude>
+    <ClInclude Include="CivilianBehaviorManager.h">
+      <Filter>SimulationEnitiesCreators</Filter>
+    </ClInclude>
+    <ClInclude Include="DecisionTreeComponent.h">
+      <Filter>Behaviors</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

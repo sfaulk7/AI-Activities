@@ -56,9 +56,9 @@ void Agent::EnableAllBehaviors()
     }
 }
 
-void Agent::DisableAllBehaviors()
+void Agent::DisableAllBehaviors(int amount)
 {
-    for (int i = 0; i <= 5; i++)
+    for (int i = 0; i <= amount; i++)
     {
         if (i >= m_components.Length())
             break;

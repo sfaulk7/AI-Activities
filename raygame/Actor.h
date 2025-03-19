@@ -43,7 +43,7 @@ public:
     int getComponentCount() { m_components.Length(); };
 
     template<typename T>
-    T* getComponent(T* componentName);
+    T* getComponent(int component);
 
     template<typename T>
     T* addComponent(T* component);
@@ -106,24 +106,16 @@ protected:
 /// <returns>A pointer to the component if a match was found.
 /// Returns nullptr if a match wasn't found.</returns>
 template<typename T>
-inline T* Actor::getComponent(T* componentName)
+inline T* Actor::getComponent(int component)
 {
-    Component* ptr = dynamic_cast<Component*>(componentName);
-    if (ptr == nullptr)
+    //Iterate through all of the components in the array.
+    for (int i = 0; i < m_components.Length(); i++)
     {
-        return nullptr;
-    }
-    else
-    {
-        //Iterate through all of the components in the array.
-        for (int i = 0; i < m_components.Length(); i++)
+        //If i is the component we are looking for...
+        if (i == component)
         {
-            //If the component name matches the name given...
-            if (m_components[i] == componentName)
-            {
-                //...return the component.
-                return m_components[i];
-            }
+            //...return the component.
+            return m_components[i];
         }
     }
 

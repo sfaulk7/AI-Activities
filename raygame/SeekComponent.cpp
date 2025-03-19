@@ -9,6 +9,11 @@ SeekComponent::~SeekComponent()
 	SetDisabled();
 }
 
+void SeekComponent::ChangeTarget(Actor* NewTarget)
+{
+	m_target = NewTarget;
+}
+
 SeekComponent::SeekComponent(Actor* owner, Actor* Target) : Component(owner, "SeekComponent")
 {
 	m_target = Target;

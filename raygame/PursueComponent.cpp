@@ -15,6 +15,11 @@ PursueComponent::PursueComponent(Actor* owner, Actor* Target) : Component(owner,
 	this->SetDisabled();
 }
 
+void PursueComponent::ChangeTarget(Actor* target)
+{
+	m_target = target;
+}
+
 void PursueComponent::update(float deltaTime)
 {
 	if (this->GetEnabled() == true)
