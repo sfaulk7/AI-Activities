@@ -43,7 +43,7 @@ public:
     int getComponentCount() { m_components.Length(); };
 
     template<typename T>
-    T* getComponent(int component);
+    T* getComponent();
 
     template<typename T>
     T* addComponent(T* component);
@@ -89,9 +89,12 @@ public:
     /// <param name="other">The actor this actor collided with.</param>
     virtual void onCollision(Actor* other);
 
-protected:
-    const char* m_name;
+    bool IsPredator() { return m_isPredator; }
+    void PredatorSwap() { m_isPredator = !(m_isPredator); }
 
+protected:
+    bool m_isPredator;
+    const char* m_name;
     bool m_started;
     Transform2D* m_transform;
     Collider* m_collider;
@@ -105,23 +108,39 @@ protected:
 /// <param name="componentName">The name of the component to search for.</param>
 /// <returns>A pointer to the component if a match was found.
 /// Returns nullptr if a match wasn't found.</returns>
+
 template<typename T>
-inline T* Actor::getComponent(int component)
+inline T* Actor::getComponent()
 {
-    //Iterate through all of the components in the array.
-    for (int i = 0; i < m_components.Length(); i++)
+    for (Component* Component : m_components)
     {
-        //If i is the component we are looking for...
-        if (i == component)
+        if (dynamic_cast<T*> (Component) != nullptr)
         {
-            //...return the component.
-            return m_components[i];
+            return dynamic_cast<T*> (Component);
         }
-    }
+    } 
 
     //Return null by default.
     return nullptr;
 }
+
+//template<typename T>
+//inline T* Actor::getComponent(int component)
+//{
+//    //Iterate through all of the components in the array.
+//    for (int i = 0; i < m_components.Length(); i++)
+//    {
+//        //If i is the component we are looking for...
+//        if (i == component)
+//        {
+//            //...return the component.
+//            return m_components[i];
+//        }
+//    }
+//
+//    //Return null by default.
+//    return nullptr;
+//}
 template<typename T>
 inline T* Actor::addComponent(T* component)
 {

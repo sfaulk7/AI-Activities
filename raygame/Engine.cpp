@@ -37,9 +37,9 @@ void Engine::start()
 	
 	addScene(new SteeringBehaviorsScene()); //scene index 0
 	addScene(new FiniteStateMachineScene()); //scene index 1
-	addScene(new DijkstrasSearchScene()); //scene index 2
-	addScene(new AStarSearchScene()); //scene index 3
-	addScene(new DecisionTreeScene()); //scene index 4
+	addScene(new DecisionTreeScene()); //scene index 2
+	addScene(new DijkstrasSearchScene()); //scene index 3
+	addScene(new AStarSearchScene()); //scene index 4
 
 	//Start the scenes
 	m_currentSceneIndex = 0;
@@ -72,9 +72,9 @@ void Engine::update(float deltaTime)
 			break;
 		}
 
-		case 2: // current scene is DijkstrasSearchScene
+		case 2: // current scene is DecisionTreeScene
 		{
-			DrawText("Current Scene: DijkstrasSearchScene", 10, 960, 10, YELLOW);
+			DrawText("Current Scene: DecisionTreeScene", 10, 960, 10, YELLOW);
 			break;
 		}
 
@@ -84,9 +84,9 @@ void Engine::update(float deltaTime)
 			break;
 		}
 
-		case 4: // current scene is DecisionTreeScene
+		case 4: // current scene is DijkstrasSearchScene
 		{
-			DrawText("Current Scene: DecisionTreeScene", 10, 960, 10, YELLOW);
+			DrawText("Current Scene: DijkstrasSearchScene", 10, 960, 10, YELLOW);
 			break;
 		}
 	}

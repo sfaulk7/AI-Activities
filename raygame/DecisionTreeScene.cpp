@@ -12,10 +12,12 @@
 #include "DecisionTreeComponent.h"
 #include "raylib.h"
 
+/// <summary>
+/// The goal is to get it to chase after the target if it isnt a predator and flee if it is 
+/// but wander if the target is too far away
+/// </summary>
 void DecisionTreeScene::start()
 {
-	fill = new Actor(100, 100, "fill");
-
 	Mouse = new Actor(100, 100, "Mouse"); //Target 0
 	Mouse->addComponent(new SpriteComponent(Mouse, "Images/bullet.png"));
 	Mouse->addComponent(new MousePositionComponent(Mouse));
@@ -44,10 +46,10 @@ void DecisionTreeScene::start()
 	Enemy = new Agent(200, 500, "Enemy");
 	Enemy->getTransform()->setMaxVelocity(500);
 	Enemy->addComponent(new WanderComponent(Enemy)); //Behavior 0
-	Enemy->addComponent(new SeekComponent(Enemy, fill)); //Behavior 1
-	Enemy->addComponent(new FleeComponent(Enemy, fill)); //Behavior 2
+	Enemy->addComponent(new SeekComponent(Enemy, Mouse)); //Behavior 1
+	Enemy->addComponent(new FleeComponent(Enemy, Mouse)); //Behavior 2
 	Enemy->addComponent(new SpriteComponent(Enemy, "Images/Enemy.png"));
-	Enemy->addComponent(new DecisionTreeComponent(Enemy, fill));
+	Enemy->addComponent(new DecisionTreeComponent(Enemy, Mouse));
 	Enemy->getTransform()->setScale({ 50, 50 });
 	Enemy->EnableBehavior(4);
 
@@ -58,56 +60,30 @@ void DecisionTreeScene::start()
 	addActor(Target4);
 	addActor(Target5);
 	addActor(Enemy);
+
+	DecisionTreeComponent* Tree = Enemy->getComponent<DecisionTreeComponent>();
+	Tree->AddAnotherTarget(Target1);
+	Tree->AddAnotherTarget(Target2);
+	Tree->AddAnotherTarget(Target3);
+	Tree->AddAnotherTarget(Target4);
+	Tree->AddAnotherTarget(Target5);
+
 }
 
 void DecisionTreeScene::update(float deltaTime)
 {
 	Scene::update(deltaTime);
 
-	if (IsKeyPressed(KEY_ZERO))
-	{
-		fill = Mouse;
-	}
-	if (IsKeyPressed(KEY_ONE))
-	{
-		fill = Target1;
-	}
-	if (IsKeyPressed(KEY_TWO))
-	{
-		fill = Target2;
-	}
-	if (IsKeyPressed(KEY_THREE))
-	{
-		fill = Target3;
-	}
-	if (IsKeyPressed(KEY_FOUR))
-	{
-		fill = Target4;
-	}
-	if (IsKeyPressed(KEY_FIVE))
-	{
-		fill = Target5;
-	}
+	DecisionTreeComponent* Tree = Enemy->getComponent<DecisionTreeComponent>();
+	Tree->AddAnotherTarget(Target1);
+	Tree->AddAnotherTarget(Target2);
+	Tree->AddAnotherTarget(Target3);
+	Tree->AddAnotherTarget(Target4);
+	Tree->AddAnotherTarget(Target5);
 
-	switch (GetKeyPressed())
-	{
-	KEY_ZERO:
-		fill = Mouse;
-		break;
-	KEY_ONE:
-		fill = Target1;
-		break;
-	KEY_TWO:
-		fill = Target2;
-		break;
-	KEY_THREE:
-		fill = Target3;
-		break;
-	KEY_FOUR:
-		fill = Target4;
-		break;
-	KEY_FIVE:
-		fill = Target5;
-		break;
-	}
+	SeekComponent* Seek = Enemy->getComponent<SeekComponent>();
+	FleeComponent* Flee = Enemy->getComponent<FleeComponent>();
+
+	Seek->ChangeTarget(Tree->CurrentTarget());
+	Flee->ChangeTarget(Tree->CurrentTarget());
 }

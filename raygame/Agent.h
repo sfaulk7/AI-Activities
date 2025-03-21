@@ -36,10 +36,8 @@ public:
     void EnableTag();
     void DisableTag();
 
-
-
-
 private:
+    
     //bool m_started;
     //Transform2D* m_transform;
     //Collider* m_collider;

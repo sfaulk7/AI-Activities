@@ -1,4 +1,5 @@
 #pragma once
+#include "DynamicArray.h"
 #include "Component.h"
 
 enum State
@@ -17,19 +18,21 @@ public:
 
     DecisionTreeComponent(Agent* owner, Actor* Target);
     
-    void ChangeTarget(Actor* NewTarget);
+    void AddAnotherTarget(Actor* NewTarget);
+
     void DisplayCurrentBehaviour();
     int DecideBehavior();
     void WanderStateBehavior();
     void SeekStateBehavior();
     void FleeStateBehavior();
-    void ArriveStateBehavior();
+    Actor* CurrentTarget() { return m_target; }
+
     void update(float deltaTime);
 
 private:
-    int m_stateChangeCounter;
     int m_currentState;
     Agent* m_agentOwner;
     Actor* m_target;
     int m_currentTarget;
+    DynamicArray<Actor*> m_targets;
 };

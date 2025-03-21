@@ -13,40 +13,55 @@ DecisionTreeComponent::~DecisionTreeComponent()
 DecisionTreeComponent::DecisionTreeComponent(Agent* owner, Actor* Target)
 {
 	m_currentState = 0;
-	m_stateChangeCounter = 0;
 	m_agentOwner = owner;
 	m_target = Target;
+	m_targets.Add(Target);
 }
 
-void DecisionTreeComponent::ChangeTarget(Actor* NewTarget)
+void DecisionTreeComponent::AddAnotherTarget(Actor* NewTarget)
 {
-	m_target = NewTarget;
+	Actor* ptr = dynamic_cast<Actor*>(NewTarget);
+	if (ptr == nullptr)
+	{
+
+	}
+	else
+	{
+		m_targets.Add(NewTarget);
+	}
 }
 
 void DecisionTreeComponent::DisplayCurrentBehaviour()
 {
+	if (m_target->IsPredator())
+	{
+		DrawText("Target Status: Predator", 20, 90, 40, YELLOW);
+	}
+	else
+	{
+		DrawText("Target Status: Prey", 20, 90, 40, YELLOW);
+	}
+
 	//Wander if too far away
 	if (m_currentState == STATE_WANDER)
 	{
 		//Show current state
-		DrawText("Agent status: Wander", 100, 40, 40, YELLOW);
-		DrawText(TextFormat("Target: %s", m_target->getName()), 100, 80, 40, YELLOW);
+		DrawText("Agent status: Wander", 20, 10, 40, YELLOW);
+		DrawText(TextFormat("Target: %s", m_target->getName()), 20, 50, 40, YELLOW);
 	}
-
-	//Flee if too close
-	if (m_currentState == STATE_FLEE)
+	//Flee
+	else if (m_currentState == STATE_FLEE)
 	{
 		//Show current state
-		DrawText("Agent status: Flee", 100, 40, 40, YELLOW);
-		DrawText(TextFormat("Target: %s", m_target->getName()), 100, 80, 40, YELLOW);
+		DrawText("Agent status: Flee", 20, 10, 40, YELLOW);
+		DrawText(TextFormat("Target: %s", m_target->getName()), 20, 50, 40, YELLOW);
 	}
-
-	//Seek if within distance
-	if (m_currentState == STATE_SEEK)
+	//Seek
+	else if (m_currentState == STATE_SEEK)
 	{
 		//Show current state
-		DrawText("Agent status: Seek", 100, 40, 40, YELLOW);
-		DrawText(TextFormat("Target: %s", m_target->getName()), 100, 80, 40, YELLOW);
+		DrawText("Agent status: Seek", 20, 10, 40, YELLOW);
+		DrawText(TextFormat("Target: %s", m_target->getName()), 20, 50, 40, YELLOW);
 	}
 }
 
@@ -57,48 +72,28 @@ int DecisionTreeComponent::DecideBehavior()
 	MathLibrary::Vector2 targetPosition = m_target->getTransform()->getLocalPosition();
 	MathLibrary::Vector2 distanceVector = targetPosition - ownerPosition;
 	float distance = distanceVector.getMagnitude();
-	
-	m_stateChangeCounter--;
 
 	//Wander if too far away
-	if (distance > 500 && m_stateChangeCounter <= 0)
+	if (distance > 500)
 	{
-		if (m_stateChangeCounter <= 0)
-		{
-			m_stateChangeCounter = 5000;
-		}
 		m_currentState = STATE_WANDER;
 		WanderStateBehavior();
-		//Show current state
 	}
-
-	//Flee if too close
-	if (distance <= 100 && m_stateChangeCounter <= 0)
+	else
 	{
-		if (m_stateChangeCounter <= 0)
+		//Flee
+		if (m_target->IsPredator() == true)
 		{
-			m_stateChangeCounter = 5000;
+			m_currentState = STATE_FLEE;
+			FleeStateBehavior();
 		}
-		m_currentState = STATE_FLEE;
-		FleeStateBehavior();
-		//Show current state
-		DrawText("Agent status: Flee", 100, 40, 40, YELLOW);
-	}
-
-	//Seek if within distance
-	if (distance <= 500 && m_stateChangeCounter <= 0)
-	{
-		if (m_stateChangeCounter <= 0)
+		//Seek
+		else
 		{
-			m_stateChangeCounter = 5000;
+			m_currentState = STATE_SEEK;
+			SeekStateBehavior();
 		}
-		m_currentState = STATE_SEEK;
-		SeekStateBehavior();
-
-		//Show current state
-		DrawText("Agent status: Seek", 100, 40, 40, YELLOW);
 	}
-
 
 	return m_currentState;
 }
@@ -167,6 +162,35 @@ void DecisionTreeComponent::FleeStateBehavior()
 
 void DecisionTreeComponent::update(float deltaTime)
 {
+	if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+	{
+		m_target->PredatorSwap();
+	}
+
+	if (IsKeyPressed(KEY_ZERO))
+	{
+		m_target = m_targets[0];
+	}
+	else if (IsKeyPressed(KEY_ONE))
+	{
+		m_target = m_targets[1];
+	}
+	else if (IsKeyPressed(KEY_TWO))
+	{
+		m_target = m_targets[2];
+	}
+	else if (IsKeyPressed(KEY_THREE))
+	{
+		m_target = m_targets[3];
+	}
+	else if (IsKeyPressed(KEY_FOUR))
+	{
+		m_target = m_targets[4];
+	}
+	else if (IsKeyPressed(KEY_FIVE))
+	{
+		m_target = m_targets[5];
+	}
 
 	if (GetEnabled() == true)
 	{
